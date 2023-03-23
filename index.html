@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Canto Commons: The Handbook</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Canto Commons</title>
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
         <style>
             /* Reset Styles */
             * {
@@ -134,7 +136,7 @@
             .pin {
                 /* this is the css that pins it to the bottom of the section */
                 bottom: 0;
-                transform: translateY(-80px);
+                transform: translateY(-60px);
                 position: absolute;
             }
 
@@ -160,7 +162,7 @@
                 position: relative;
                 overflow: hidden;
                 border: 2px solid #D9F2C8;
-                box-shadow: 0 12px 0 #202B1E;
+                box-shadow: 10px 10px 0 #202B1E;
                 font-weight: bold;
                 margin-bottom: 10px;
                 font-size: 12px;
@@ -208,7 +210,7 @@
             }
 
             .hero-text {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             a {
@@ -218,15 +220,14 @@
             }
 
             .inside-list-style {
-    list-style-position: georgian inside;
-    padding-left: 0;
-}
+                list-style-position: georgian inside;
+                padding-left: 0;
+            }
 
-.inside-list-style li {
-    margin-bottom: 1em;
-    margin-left: 2em;
-}
-
+            .inside-list-style li {
+                margin-bottom: 1em;
+                margin-left: 2em;
+            }
         </style>
     </head>
     <body>
@@ -239,8 +240,8 @@
             <ul class="navbar__menu">
                 <li class="navbar__menu-item" data-target="section2">Table of Contents  ↓</li>
                 <li class="navbar__menu-item" data-target="section9">Canto Quick Links  ↓</li>
-                <li class="navbar__menu-item" data-target="section9">Github  →</li>
-                <li class="navbar__menu-item" data-target="section9">Forum  →</li>
+                <li class="navbar__menu-item"><a href="https://github.com/Canto-Commons" target="_blank">Github →</a></li>
+                <li class="navbar__menu-item" data-target="section9"><a href="https://github.com/Canto-Commons" target="_blank">Forum  →</a></li>
             </ul>
         </nav>
         <div class="parent row">
@@ -249,7 +250,7 @@
                 <div class="section-content">
                     <div class="section-header hero">Canto Commons:<br><span style="font-weight: bold;">
                             A Self-Governing System
-                                                                                                                                                                                                                                                                                                                                                  for Shared Authority & Autonomy
+                                                                                                                                                                                                                                                                                                                                                                              for Shared Authority & Autonomy
                         </span>
                     </div>
                     <div class="section-text hero-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
@@ -258,7 +259,7 @@
                     </div>
                     <div class="section-text hero-links hero-text">
                         <a href="https://github.com/Canto-Commons" target="_blank" style="padding-right: 30px;">Github →</a>
-                        <a href="https://www.w3schools.com/" target="_blank">Forum →</a>
+                        <a href="https://forum.canto.build/" target="_blank">Forum →</a>
                     </div>
                 </div>
 
@@ -267,7 +268,9 @@
                 <div class="section-content pin">
                     <div class="section-header">Introduction:
                     </div>
-                    <div class="section-text">Canto operates as a <strong>commons project,</strong> which means that community members of good reputation are expected to support and respect other contributors of good reputation.
+                    <div class="section-text">Canto operates as a
+                        <strong>commons project,</strong>
+                        which means that community members of good reputation are expected to support and respect other contributors of good reputation.
                         <br><br>
                         <strong>Table of Contents:</strong>
                     </div>
@@ -297,18 +300,18 @@
                     <div class="section-header">Member Guidelines:
                     </div>
                     <div class="section-text">
-                      Some general guidelines for reasonable expectations of conduct and operations among members of the commons are as follow:
-                      <br><br>
-                      <ul class="inside-list-style">
-                          <li>Within the Canto Commons, members are encouraged to be autonomous and self-directed in the research, discovery, and execution of high-value initiatives.</li>
-                          <li>Allow deliberate experimentation regarding the implementation of a specification; encourage creativity, but be stringent in meeting the deadlines everyone has agreed upon.</li>
-                          <li>Be concise and deliberate in the delivery of your communications, whether via text, code, or speech.</li>
-                          <li>Maintain a healthy disdain toward hierarchies, but hold in high regard the roles and contributions of your code companions.</li>
-                          <li>Within reason, it is acceptable to move as fast as possible while maintaining adequate safety and security standards in the delivery of public goods within the Canto ecosystem.</li>
-                      </ul>
-                      Members of the Commons are expected to behave cordially to one another. Aggressive behavior will not be tolerated.
-                  </div>
-                  
+                        Some general guidelines for reasonable expectations of conduct and operations among members of the commons are as follow:
+                        <br><br>
+                        <ul class="inside-list-style">
+                            <li>Within the Canto Commons, members are encouraged to be autonomous and self-directed in the research, discovery, and execution of high-value initiatives.</li>
+                            <li>Allow deliberate experimentation regarding the implementation of a specification; encourage creativity, but be stringent in meeting the deadlines everyone has agreed upon.</li>
+                            <li>Be concise and deliberate in the delivery of your communications, whether via text, code, or speech.</li>
+                            <li>Maintain a healthy disdain toward hierarchies, but hold in high regard the roles and contributions of your code companions.</li>
+                            <li>Within reason, it is acceptable to move as fast as possible while maintaining adequate safety and security standards in the delivery of public goods within the Canto ecosystem.</li>
+                        </ul>
+                        Members of the Commons are expected to behave cordially to one another. Aggressive behavior will not be tolerated.
+                    </div>
+
                 </div>
             </section>
 
@@ -316,10 +319,9 @@
                 <div class="section-content pin">
                     <div class="section-header">Structure:
                     </div>
-                    <div class="section-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
-                    <div class="section-button">
-                        EXPLORE THE HANDBOOK
-                    </div>
+                    <div class="section-text">Separate token standards from protocol standards. 
+<br><br>
+                      Establish the formation of two independent groups tasked with very explicit mandates. Together, both groups form the minimum viable Canto Commons.</div>
                 </div>
             </section>
 
@@ -327,14 +329,11 @@
                 <div class="section-content pin">
                     <div class="section-header">Public Communications:
                     </div>
-                    <div class="section-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
-                    <div class="section-button">
-                        EXPLORE THE HANDBOOK
-                    </div>
+                    <div class="section-text">There are established channels for discourse around various roles within the Canto Commons:</div>
                 </div>
             </section>
 
-            <section class="section" id="section6">
+            <!-- <section class="section" id="section6">
                 <div class="section-content pin">
                     <div class="section-header">Roles:
                     </div>
@@ -344,17 +343,24 @@
                         <br><br>
                         An individual will be elected from the Commons in order to act as primary Project Manager. It will be their responsibility to make good faith decisions in order to ensure that the project is complete and in good order for public presentation.</div>
                 </div>
-            </section>
+            </section> -->
 
             <section class="section" id="section7">
-                <div class="section-content pin">
-                    <div class="section-header">Canto Improvement Proposal Process:
-                    </div>
-                    <div class="section-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
-                    <div class="section-button">
-                        EXPLORE THE HANDBOOK
-                    </div>
+              <div class="section-content pin">
+                <div class="section-header">Canto Improvement<br>Proposal Process:
                 </div>
+                <div class="section-text">
+                  The Canto Protocol Improvement Proposal (CPIP) process is managed and maintained by a separate cluster of individual volunteers operating in the capacity of core contributors and maintainers.                    <br><br>
+                    <ul class="inside-list-style">
+                        <li>Subjects for potential CIP acceptance should be first discussed within the Telegram, more broadly, and IRC server, more specifically. </li>
+                        <li>Once sufficient discussion has been conducted and general  consensus regarding the nature of the proposal has been achieved, including a general idea for mechanism design and implementation considerations, a forum post will be published on canto.build to provide a high-level overview of the proposed improvement.</li>
+                        <li>Based on community feedback, a final CIP will be submitted as a PR to the Canto Core Protocol Implementation GitHub repository. </li>
+                        <li>Each PR will be reviewed by at least 3 contributors. Each contributor should respond with appropriate comments to acknowledge review of each individual PR. </li>
+                    </ul>
+                    Should no changes be requested, a CIP can be considered ready for the implementation.
+                </div>
+
+            </div>
             </section>
 
             <section class="section" id="section8">
