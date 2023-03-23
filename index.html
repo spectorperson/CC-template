@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Canto Commons: The Handbook</title>
+        <style>
+            /* Reset Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Global Styles */
+            html {
+                font-size: 62.5%;
+            }
+
+            @font-face {
+                font-family: 'Approach';
+                src: url('fonts/ApproachTRIAL-Rg_1.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'Approach';
+                src: url('fonts/ApproachTRIAL-Bd_1.woff') format('woff');
+                font-weight: bold;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'Approach';
+                src: url('fonts/ApproachTRIAL-UltBlk_1.woff') format('woff');
+                font-weight: 800;
+                font-style: normal;
+            }
+
+            body {
+                font-size: 1.6rem;
+                font-family: 'Approach', sans-serif;
+                font-weight: normal;
+                color: #D9F2C8;
+                height: 100vh;
+                overflow: hidden;
+                margin-left: 80px;
+                background-color: rgb(15, 15, 15);
+                background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%), url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23222222' fill-opacity='0.5' d='M0 0h4v4H0zM4 4h4v4H4zM2 2h2v2H2zM6 6h2v2H6z'/%3E%3C/svg%3E");
+                animation: grain 0.1s steps(1000) infinite;
+            }
+
+            @keyframes grain {
+                from {
+                    background-position: 0 0;
+                }
+                to {
+                    background-position: 100% 100%;
+                }
+            }
+
+            /* Navbar Styles */
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 80px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 80px;
+                z-index: 999;
+                font-weight: normal;
+            }
+
+            .navbar__logo {
+                margin-right: auto;
+            }
+
+            .navbar__logo img {
+                max-height: calc(50px * 0.8);
+                height: auto;
+                width: auto;
+            }
+
+            .navbar__menu {
+                display: flex;
+                align-items: center;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .navbar__menu-item {
+                margin-left: 50px;
+                font-size: 1.6rem;
+                cursor: pointer;
+                transition: all 4s ease-in-out;
+                text-align: right;
+                white-space: nowrap;
+            }
+
+            .navbar__menu-item:hover {
+                color: #fff;
+                font-weight: bold; /* added to make navbar bold on hover */
+            }
+
+            /* Sections Styles */
+            .parent {
+                height: 100vh;
+                overflow-y: scroll;
+                scroll-snap-type: y mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .section {
+                height: 100vh;
+                scroll-snap-align: start;
+                display: flex;
+                padding-top: 80px;
+                position: relative;
+            }
+
+            .section-content {
+                text-align: left;
+                max-width: 420px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .pin {
+                /* this is the css that pins it to the bottom of the section */
+                bottom: 0;
+                transform: translateY(-80px);
+                position: absolute;
+            }
+
+            .section-header {
+                font-size: 28px;
+                font-weight: bold; /* changed to extra bold */
+                margin-bottom: 20px;
+                line-height: 1.4em;
+                letter-spacing: 1px;
+            }
+
+            .section-text {
+                font-size: 12px;
+                font-weight: normal;
+                margin-bottom: 30px;
+                line-height: 1.4em;
+            }
+
+            .section-button {
+                box-sizing: border-box;
+                padding: 10px 20px;
+                background-color: #467E47;
+                position: relative;
+                overflow: hidden;
+                border: 2px solid #D9F2C8;
+                box-shadow: 0 12px 0 #202B1E;
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+            .section-button:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #95D65B 3.28%, #467E47 100%);
+                z-index: 1;
+                transition: opacity 0.5s ease-in-out;
+                opacity: 1;
+            }
+
+            .section-button:hover:before {
+                opacity: 0;
+                background: linear-gradient(-45deg, #95D65B 3.28%, #467E47 100%);
+            }
+
+            .section-button-text {
+                position: relative;
+                z-index: 2;
+                font-weight: bold;
+                text-shadow: 1px 1px 2px #467E47;
+
+            }
+
+
+            .quick {
+                width: 100%;
+            }
+
+            .hero {
+                text-transform: uppercase;
+                font-weight: 800; /* changed to regular */
+            }
+
+            .hero-links {
+                margin-top: 40px;
+            }
+
+            .hero-text {
+                font-size: 18px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #D9F2C8;
+
+            }
+
+            .inside-list-style {
+    list-style-position: georgian inside;
+    padding-left: 0;
+}
+
+.inside-list-style li {
+    margin-bottom: 1em;
+    margin-left: 2em;
+}
+
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="#" class="navbar__logo"><img src="logo.png" alt="Logo"></a>
+            </div>
+
+
+            <ul class="navbar__menu">
+                <li class="navbar__menu-item" data-target="section2">Table of Contents  ↓</li>
+                <li class="navbar__menu-item" data-target="section9">Canto Quick Links  ↓</li>
+                <li class="navbar__menu-item" data-target="section9">Github  →</li>
+                <li class="navbar__menu-item" data-target="section9">Forum  →</li>
+            </ul>
+        </nav>
+        <div class="parent row">
+
+            <section class="section" id="section1">
+                <div class="section-content">
+                    <div class="section-header hero">Canto Commons:<br><span style="font-weight: bold;">
+                            A Self-Governing System
+                                                                                                                                                                                                                                                                                                                                                  for Shared Authority & Autonomy
+                        </span>
+                    </div>
+                    <div class="section-text hero-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
+                    <div class="section-button hero-text">
+                        <div class="section-button-text">EXPLORE THE HANDBOOK!</div>
+                    </div>
+                    <div class="section-text hero-links hero-text">
+                        <a href="https://www.w3schools.com/" target="_blank" style="padding-right: 30px;">Github →</a>
+                        <a href="https://www.w3schools.com/" target="_blank">Github →</a>
+                    </div>
+                </div>
+
+            </section>
+            <section class="section" id="section2">
+                <div class="section-content pin">
+                    <div class="section-header">Introduction:
+                    </div>
+                    <div class="section-text">Canto operates as a <strong>commons project,</strong> which means that community members of good reputation are expected to support and respect other contributors of good reputation.
+                        <br><br>
+                        <strong>Table of Contents:</strong>
+                    </div>
+                    <div class="section-button quick">
+                        <div class="section-button-text">MEMBER GUIDELINES</div>
+                    </div>
+                    <div class="section-button quick">
+                        <div class="section-button-text">Button Text</div>
+                    </div>
+                    <div class="section-button quick">
+                        <div class="section-button-text">Button Text</div>
+                    </div>
+                    <div class="section-button quick">
+                        <div class="section-button-text">Button Text</div>
+                    </div>
+                    <div class="section-button quick">
+                        <div class="section-button-text">Button Text</div>
+                    </div>
+                    <div class="section-button quick">
+                        <div class="section-button-text">Button Text</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="section3">
+                <div class="section-content pin">
+                    <div class="section-header">Member Guidelines:
+                    </div>
+                    <div class="section-text">
+                      Some general guidelines for reasonable expectations of conduct and operations among members of the commons are as follow:
+                      <br><br>
+                      <ul class="inside-list-style">
+                          <li>Within the Canto Commons, members are encouraged to be autonomous and self-directed in the research, discovery, and execution of high-value initiatives.</li>
+                          <li>Allow deliberate experimentation regarding the implementation of a specification; encourage creativity, but be stringent in meeting the deadlines everyone has agreed upon.</li>
+                          <li>Be concise and deliberate in the delivery of your communications, whether via text, code, or speech.</li>
+                          <li>Maintain a healthy disdain toward hierarchies, but hold in high regard the roles and contributions of your code companions.</li>
+                          <li>Within reason, it is acceptable to move as fast as possible while maintaining adequate safety and security standards in the delivery of public goods within the Canto ecosystem.</li>
+                      </ul>
+                      Members of the Commons are expected to behave cordially to one another. Aggressive behavior will not be tolerated.
+                  </div>
+                  
+                </div>
+            </section>
+
+            <section class="section" id="section4">
+                <div class="section-content pin">
+                    <div class="section-header">Structure:
+                    </div>
+                    <div class="section-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
+                    <div class="section-button">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="section5">
+                <div class="section-content pin">
+                    <div class="section-header">Public Communications:
+                    </div>
+                    <div class="section-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
+                    <div class="section-button">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="section6">
+                <div class="section-content pin">
+                    <div class="section-header">Roles:
+                    </div>
+                    <div class="section-text">Everyone has a role in the Canto Commons. This role does not provide explicit power, but implicit power.
+                        <br><br>
+                        Everyone plays a fluid role, meaning that one may be better suited for the responsibility of managing the implementation of a protocol, but may not be the best person to get the job done within the context of a separate, albeit similar, project.
+                        <br><br>
+                        An individual will be elected from the Commons in order to act as primary Project Manager. It will be their responsibility to make good faith decisions in order to ensure that the project is complete and in good order for public presentation.</div>
+                </div>
+            </section>
+
+            <section class="section" id="section7">
+                <div class="section-content pin">
+                    <div class="section-header">Canto Improvement Proposal Process:
+                    </div>
+                    <div class="section-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
+                    <div class="section-button">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="section8">
+                <div class="section-content pin">
+                    <div class="section-header">Author's Notes:
+                    </div>
+                    <div class="section-text">The above outline is a recommendation and proposal for consideration submitted by Zak Cole, Canto Implementor, to the Canto Commons community and does not constitute a partnership agreement, nor imply authority, responsibility, or practice of the author toward incorporation of a Canto Commons community. The opinions and suggestions presented in this document do not make assumptions nor considerations regarding network governance and should not be construed as having implied such.</div>
+                </div>
+            </section>
+
+            <section class="section" id="section9">
+                <div class="section-content pin">
+                    <div class="section-header">Canto Quick Links:
+                    </div>
+                    <div class="section-text">Your guide to development, operations, and contributions within the Canto ecosystem.</div>
+                    <div class="section-button quick">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                    <div class="section-button quick">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                    <div class="section-button quick">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                    <div class="section-button quick">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                    <div class="section-button quick">
+                        EXPLORE THE HANDBOOK
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <script>
+            // Smooth scroll to section when navbar menu item clicked
+            const navbarMenuItems = document.querySelectorAll('.navbar__menu-item');
+            navbarMenuItems.forEach(menuItem => {
+                menuItem.addEventListener('click', () => {
+                    const target = menuItem.dataset.target;
+                    const section = document.getElementById(target);
+                    section.scrollIntoView({behavior: 'smooth'});
+                });
+            });
+        </script>
+    </body>
+</html>
